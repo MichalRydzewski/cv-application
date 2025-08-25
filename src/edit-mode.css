@@ -1,0 +1,54 @@
+:root {
+  --light-blue: rgb(176, 228, 252)
+}
+
+header {
+  text-align: center;
+  font-size: x-large;
+}
+
+body {
+  background-color: var(--light-blue);
+}
+
+main {
+  background-color: white;
+  margin: 1rem 5rem;
+  border-radius: 10px;
+  padding: 2rem;
+}
+
+h2 {
+  font-size: x-large;
+  margin-bottom: 8px;
+}
+
+/* Input */
+
+label {
+  color: gray;
+  font-size: large;
+}
+
+input {
+  border: none;
+  padding: 20px;
+  background-color: rgba(176, 228, 252, 0.6);
+  border-radius: 5px;
+}
+
+.input-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* --- */
+
+.general-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 15px;
+  column-gap: 3rem;
+  margin-bottom: 2rem;
+}
