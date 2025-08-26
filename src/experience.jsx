@@ -14,10 +14,10 @@ export default function Experience() {
           inputType={"text"}
         ></InputTemplate>
         <InputTemplate
-          labelName={"Main responsibilities of your jobs"}
+          labelName={"Main responsibilities"}
           inputType={"text"}
         ></InputTemplate>
-        <div>
+        <div className="date-box">
           <InputTemplate id="experience-from" labelName={"From"} inputType={"date"}></InputTemplate>
           <InputTemplate id="experience-to" labelName={"To"} inputType={"date"}></InputTemplate>
         </div>

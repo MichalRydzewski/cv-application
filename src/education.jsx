@@ -8,7 +8,7 @@ export default function Education() {
       <div className="section-grid education-grid">
         <InputTemplate labelName={"School"} inputType={"text"}></InputTemplate>
         <Dropdown></Dropdown>
-        <div className="date-of-study">
+        <div className="date-box">
           <InputTemplate
             id="education-from"
             labelName={"From"}
