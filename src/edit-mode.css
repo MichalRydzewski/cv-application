@@ -42,12 +42,20 @@ label {
 }
 
 input,
-.title-dropdown {
+.title-dropdown,
+textarea {
   border: none;
   padding: 15px;
   background-color: var(--light-blue);
   border-radius: 5px;
   font-size: 14px;
+}
+
+textarea {
+  resize: none;
+  min-height: 8rem;
+  height: 100%;
+  line-height: 2;
 }
 
 .input-flex,
@@ -71,12 +79,32 @@ input,
   grid-column: 1/3;
 }
 
-.education-grid > .input-flex:nth-child(2) {
-  order: 3;
-}
+/* order of inputs */
+
 .education-grid > .input-flex:nth-child(3) {
   order: 2;
 }
+
+.experience-grid {
+  grid-template-areas:
+    "company responsibilities"
+    "position responsibilities"
+    "dates responsibilities";
+}
+.experience-grid > div:nth-child(1) {
+  grid-area: company;
+}
+.experience-grid > div:nth-child(2) {
+  grid-area: responsibilities;
+}
+.experience-grid > div:nth-child(3) {
+  grid-area: position;
+}
+.experience-grid > div:nth-child(4) {
+  grid-area: dates;
+}
+
+/* dates */
 
 .date-box {
   display: grid;
@@ -86,7 +114,7 @@ input,
 
 input[type="date"]::-webkit-inner-spin-button,
 input[type="date"]::-webkit-calendar-picker-indicator {
-  display: none; 
+  display: none;
   -webkit-appearance: none;
 }
 
@@ -129,6 +157,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
   .experience {
     grid-column: inherit;
+  }
+  .experience-grid {
+    grid-template-areas:
+      "company"
+      "position"
+      "responsibilities"
+      "dates";
   }
 }
 
