@@ -10,10 +10,12 @@ export default function Education() {
         <Dropdown></Dropdown>
         <div className="date-of-study">
           <InputTemplate
+            id="education-from"
             labelName={"From"}
             inputType={"date"}
           ></InputTemplate>
           <InputTemplate
+            id="education-to"
             labelName={"To"}
             inputType={"date"}
           ></InputTemplate>

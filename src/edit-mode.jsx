@@ -18,15 +18,22 @@ export default function EditMode() {
   )
 }
 
-export function InputTemplate({ labelName, inputType }) {
-  const id = labelName
-    .split(" ")
-    .map((word) => word[0].toLowerCase() + word.slice(1))
-    .join("-")
+export function InputTemplate({ labelName, inputType, id }) {
+  let returnId
+
+  if (id === undefined) {
+    returnId = labelName
+      .split(" ")
+      .map((word) => word[0].toLowerCase() + word.slice(1))
+      .join("-")
+  } else {
+    returnId = id
+  }
+
   return (
     <div className="input-flex">
-      <label htmlFor={id}>{labelName}</label>
-      <input type={inputType} id={id} />
+      <label htmlFor={returnId}>{labelName}</label>
+      <input type={inputType} id={returnId} />
     </div>
   )
 }
