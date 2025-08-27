@@ -3,7 +3,7 @@ import Education from "./education"
 import Experience from "./experience"
 import "./edit-mode.css"
 
-export default function EditMode() {
+export default function EditMode({children}) {
   return (
     <>
       <header>
@@ -13,6 +13,7 @@ export default function EditMode() {
         <Contact></Contact>
         <Education></Education>
         <Experience></Experience>
+        {children}
       </main>
     </>
   )

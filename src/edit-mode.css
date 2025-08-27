@@ -20,13 +20,17 @@ main {
   margin: 1rem 3rem;
   border-radius: 10px;
   padding: 1rem;
+  padding-bottom: 5rem;
+  position: relative;
 }
 
 section {
   border: 2px solid var(--light-blue);
   border-radius: 10px;
   padding: 1.2rem;
+  padding-bottom: 2.5rem;
   min-width: 0;
+  position: relative;
 }
 
 h2 {
@@ -118,6 +122,60 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   -webkit-appearance: none;
 }
 
+/* buttons */
+
+.delete-btn {
+  color: red;
+  border: 1px black dashed;
+  background-color: white;
+}
+
+.add-btn {
+  color: gray;
+  font-size: 16px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border: solid 1px white;
+  border-top: 2px dashed var(--light-blue);
+  background-color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+}
+
+.add-btn:hover {
+  color: black;
+  font-weight: 700;
+  cursor: pointer;
+  border-top: solid 2px var(--light-blue);
+}
+
+.view-btn {
+  color: rgb(0,0,0,0.7);
+  background-color: white;
+  border: solid 2px white;
+  border-radius: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  font-size: 27px;
+  padding: 10px 30px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-weight: 700;
+  padding: 15px;
+}
+
+.view-btn:hover {
+  color: black;
+  background-color: rgb(128, 128, 128, 0.15);
+  cursor: pointer;
+  border: solid 2px gray;
+}
+
 /* media queries */
 
 @media (width < 1200px) {
@@ -170,6 +228,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 @media (width < 630px) {
   main {
     padding: 3rem 1rem;
+    padding-bottom: 5rem;
   }
   .date-box {
     grid-template-columns: 1fr;

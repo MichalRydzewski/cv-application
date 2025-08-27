@@ -36,6 +36,7 @@ fishing in troubled waters"
             labelName={"To"}
             inputType={"date"}
           ></InputTemplate>
+          <button className="add-btn">+ ADD ANOTHER ONE</button>
         </div>
       </div>
     </section>

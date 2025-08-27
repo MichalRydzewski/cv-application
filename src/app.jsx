@@ -10,15 +10,24 @@ export default function App() {
     setMode(e.target.value)
   }
 
+  const viewBtn = (
+    <button className="view-btn" value="view" onClick={handleMode}>
+      Enter View Mode
+    </button>
+  )
+  const editBtn = (
+    <button className="edit-btn" value="edit" onClick={handleMode}>
+      Enter Edit Mode
+    </button>
+  )
+
   return mode === "edit" ? (
     <>
-      <EditMode></EditMode>
-      <button value="view" onClick={handleMode}>Enter View Mode</button>
+      <EditMode children={viewBtn}></EditMode>
     </>
   ) : (
     <>
-      <ViewMode></ViewMode>
-      <button value="edit" onClick={handleMode}>Enter Edit Mode</button>
+      <ViewMode children={editBtn}></ViewMode>
     </>
   )
 }

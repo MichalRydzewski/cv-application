@@ -20,6 +20,8 @@ export default function Education() {
             inputType={"date"}
           ></InputTemplate>
         </div>
+        {/* <button className="delete-btn">x</button> */}
+        <button className="add-btn">+ ADD ANOTHER ONE</button>
       </div>
     </section>
   )
@@ -46,7 +48,15 @@ function Dropdown() {
           <option value="other">Other</option>
         </select>
       </div>
-      {title === "other" ? <InputTemplate className="other" labelName={"Please elaborate"} inputType={"text"}></InputTemplate> : ""}
+      {title === "other" ? (
+        <InputTemplate
+          className="other"
+          labelName={"Please elaborate"}
+          inputType={"text"}
+        ></InputTemplate>
+      ) : (
+        ""
+      )}
     </>
   )
 }
