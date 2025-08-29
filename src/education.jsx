@@ -2,42 +2,77 @@ import { useState } from "react"
 import { InputTemplate } from "./edit-mode"
 
 export default function Education() {
+  const [educationList, setEducationList] = useState([
+    { id: crypto.randomUUID() },
+  ])
+
+  const addEducation = () => {
+    setEducationList([...educationList, { id: crypto.randomUUID() }])
+  }
+
+  const deleteEducation = (id) => {
+    setEducationList(educationList.filter((edu) => edu.id !== id))
+  }
+
   return (
     <section className="education">
       <h2>Education</h2>
-      <div className="section-grid education-grid">
-        <InputTemplate labelName={"School"} inputType={"text"}></InputTemplate>
-        <Dropdown></Dropdown>
-        <div className="date-box">
+
+      {educationList.map((edu, index) => (
+        <div className="section-grid education-grid" key={edu.id}>
           <InputTemplate
-            id="education-from"
-            labelName={"From"}
-            inputType={"date"}
+            id={`school-${index}`}
+            labelName={"School"}
+            inputType={"text"}
           ></InputTemplate>
-          <InputTemplate
-            id="education-to"
-            labelName={"To"}
-            inputType={"date"}
-          ></InputTemplate>
+          <Dropdown index={index}></Dropdown>
+          <div className="date-box">
+            <InputTemplate
+              id={`education-from-${index}`}
+              labelName={"From"}
+              inputType={"date"}
+            ></InputTemplate>
+            <InputTemplate
+              id={`education-to-${index}`}
+              labelName={"To"}
+              inputType={"date"}
+            ></InputTemplate>
+          </div>
+          {index < educationList.length - 1 && (
+            <div className="edu-separator"></div>
+          )}
+          {index > 0 && (
+            <button
+              className="delete-btn"
+              onClick={() => deleteEducation(edu.id)}
+            >
+              ×
+            </button>
+          )}
         </div>
-        {/* <button className="delete-btn">x</button> */}
-        <button className="add-btn">+ ADD ANOTHER ONE</button>
-      </div>
+      ))}
+      {educationList.length < 3 ? (
+        <button className="add-btn" onClick={addEducation}>
+          + ADD ANOTHER ONE
+        </button>
+      ) : (
+        ""
+      )}
     </section>
   )
 }
 
-function Dropdown() {
+function Dropdown({ index }) {
   const [title, setTitle] = useState("high-school")
 
   return (
     <>
       <div className="dropdown">
-        <label htmlFor="title">Title of Study</label>
+        <label htmlFor={`title-${index}`}>Title of Study</label>
         <select
           className="title-dropdown"
           name="title"
-          id="title"
+          id={`title-${index}`}
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         >
@@ -51,8 +86,9 @@ function Dropdown() {
       {title === "other" ? (
         <InputTemplate
           className="other"
-          labelName={"Please elaborate"}
-          inputType={"text"}
+          id={`please-elaborate-${index}`}
+          labelName="Please elaborate"
+          inputType="text"
         ></InputTemplate>
       ) : (
         ""
